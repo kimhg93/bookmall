@@ -1,4 +1,4 @@
-package kr.co.itcen.main;
+package kr.co.itcen.bookmall.main;
 
 import kr.co.itcen.bookmall.dao.test.BookDaoTest;
 import kr.co.itcen.bookmall.dao.test.CartDaoTest;
@@ -10,8 +10,7 @@ import kr.co.itcen.bookmall.util.BookmallUtil;
 
 public class BookMallTest {
 
-	public static void main(String[] args) {	
-		
+	public static void main(String[] args) {		
 		MemberDaoTest.insertMember();
 		CategoryDaoTest.insertCategory();
 		BookDaoTest.insertBook();
@@ -30,10 +29,6 @@ public class BookMallTest {
 		BookmallUtil.deleteAll("cart");
 		BookmallUtil.deleteAll("book");
 		BookmallUtil.deleteAll("user");
-		BookmallUtil.deleteAll("category");
-		
-				
-		
-		
+		BookmallUtil.deleteAll("category");				
 	}
 }
