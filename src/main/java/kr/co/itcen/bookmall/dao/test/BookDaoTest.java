@@ -3,6 +3,7 @@ package kr.co.itcen.bookmall.dao.test;
 import java.util.List;
 
 import kr.co.itcen.bookmall.dao.BookDao;
+import kr.co.itcen.bookmall.util.BookmallUtil;
 import kr.co.itcen.bookmall.vo.BookVo;
 
 public class BookDaoTest {
@@ -10,10 +11,10 @@ public class BookDaoTest {
 	public static void main(String[] args) {
 		insertBook();
 		getBook();
-		//BookmallUtil.deleteAll("book");
+		BookmallUtil.deleteAll("book");
 	}
 	
-	private static void insertBook() {
+	public static void insertBook() {
 		BookDao dao = new BookDao();				
 		BookVo vo = new BookVo();		
 		vo.setName("과학책");

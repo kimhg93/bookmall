@@ -2,8 +2,8 @@ package kr.co.itcen.bookmall.dao.test;
 
 import java.util.List;
 
-import kr.co.itcen.bookmall.dao.BookmallUtil;
 import kr.co.itcen.bookmall.dao.CategoryDao;
+import kr.co.itcen.bookmall.util.BookmallUtil;
 import kr.co.itcen.bookmall.vo.CategoryVo;
 
 
@@ -16,7 +16,7 @@ public class CategoryDaoTest {
 		//BookmallUtil.deleteAll("category");
 	}
 
-	private static void insertCategory() {
+	public static void insertCategory() {
 		CategoryDao dao = new CategoryDao();				
 		CategoryVo vo = new CategoryVo();		
 		vo.setName("인문");

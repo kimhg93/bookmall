@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import kr.co.itcen.bookmall.util.BookmallUtil;
 import kr.co.itcen.bookmall.vo.OrderBookVo;
 
 public class OrderBookDao extends BookmallUtil {
@@ -48,7 +49,7 @@ public class OrderBookDao extends BookmallUtil {
 		try {
 			connection = getConnection();
 			
-			String sql = "select a.order_no, a.book_no, b.name, d.name" + 
+			String sql = "select a.order_no, a.book_no, b.name, d.name, a.amount" + 
 						" from book_order a, book b, orders c, user d" + 
 						" where a.book_no = b.no" + 
 						" and a.order_no = c.no" + 
@@ -63,6 +64,7 @@ public class OrderBookDao extends BookmallUtil {
 				vo.setBookNo(rs.getLong(2));
 				vo.setBookName(rs.getString(3));
 				vo.setUserName(rs.getString(4));
+				vo.setAmount(rs.getInt(5));
 				list.add(vo);
 			}						
 		} catch (SQLException e) {

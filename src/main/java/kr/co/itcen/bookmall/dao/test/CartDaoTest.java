@@ -2,8 +2,8 @@ package kr.co.itcen.bookmall.dao.test;
 
 import java.util.List;
 
-import kr.co.itcen.bookmall.dao.BookmallUtil;
 import kr.co.itcen.bookmall.dao.CartDao;
+import kr.co.itcen.bookmall.util.BookmallUtil;
 import kr.co.itcen.bookmall.vo.CartVo;
 
 public class CartDaoTest {
@@ -11,10 +11,10 @@ public class CartDaoTest {
 	public static void main(String[] args) {
 		insertCart();
 		getCart();
-		//BookmallUtil.deleteAll("cart");
+		BookmallUtil.deleteAll("cart");
 	}
 	
-	private static void insertCart() {
+	public static void insertCart() {
 		CartDao dao = new CartDao();				
 		CartVo vo = new CartVo();
 		vo.setUserName("둘리");

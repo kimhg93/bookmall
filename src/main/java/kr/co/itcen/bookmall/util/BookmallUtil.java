@@ -1,4 +1,4 @@
-package kr.co.itcen.bookmall.dao;
+package kr.co.itcen.bookmall.util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
