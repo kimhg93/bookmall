@@ -49,7 +49,7 @@ public class OrderDao extends BookmallUtil{
 		try {
 			connection = getConnection();
 			
-			String sql = "select a.no, a.payment, a.address, a.user_no, b.name" + 
+			String sql = "select a.no, a.payment, a.address, a.user_no, b.name, b.email" + 
 						 " from orders a, user b" + 
 						 " where a.user_no = b.no";
 			pstmt = connection.prepareStatement(sql);
@@ -63,6 +63,7 @@ public class OrderDao extends BookmallUtil{
 				vo.setAddress(rs.getString(3));
 				vo.setUser_no(rs.getLong(4));
 				vo.setUserName(rs.getString(5));
+				vo.setUserEamil(rs.getString(6));
 				list.add(vo);
 			}						
 		} catch (SQLException e) {

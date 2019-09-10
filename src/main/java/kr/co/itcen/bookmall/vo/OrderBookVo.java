@@ -39,7 +39,7 @@ public class OrderBookVo {
 	
 	@Override
 	public String toString() {
-		return "OrderBookVo [orderNo=" + orderNo + ", bookNo=" + bookNo + ", bookName=" + bookName + ", userName="
-				+ userName + ", amount=" + amount + "]";
+		return "주문서적 [주문번호:" + orderNo + ", 책번호:" + bookNo + ", 책이름:" + bookName + ", 회원이름:"
+				+ userName + ", 수량:" + amount + "]";
 	}	
 }

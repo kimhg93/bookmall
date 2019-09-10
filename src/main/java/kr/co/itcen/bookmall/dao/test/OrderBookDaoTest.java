@@ -10,7 +10,7 @@ public class OrderBookDaoTest {
 		getOrderBook();
 	}
 	
-	protected static void insertOrderBook(String bookName, String userName, int amount) {
+	public static void insertOrderBook(String bookName, String userName, int amount) {
 		OrderBookDao dao = new OrderBookDao();				
 		OrderBookVo vo = new OrderBookVo();			
 		vo.setBookName(bookName);

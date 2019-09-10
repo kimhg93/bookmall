@@ -40,6 +40,45 @@ public class OrderBookDao extends BookmallUtil {
 		}
 	}
 	
+	public static void setPayment(String name){
+		Connection connection = null;		
+		PreparedStatement pstmt = null;
+		try {
+			connection = getConnection();
+			String sql = "update orders set payment=("
+						+ "select * from("
+						+ "select sum(c.amount * d.price)" + 
+						"  from user a, orders b, book_order c, book d" + 
+						"  where a.name = ?" + 
+						"  and a.no = b.user_no" + 
+						"  and b.no = c.order_no" + 
+						"  and c.book_no = d.no) a) where no=("
+						+ "select * from("
+						+ "select b.no" + 
+						"   from user a, orders b" + 
+						"   where a.name = ?" + 
+						"    and a.no = b.user_no) b)";
+			
+			pstmt = connection.prepareStatement(sql);
+			pstmt.setString(1, name);
+			pstmt.setString(2, name);
+			pstmt.executeUpdate();	
+		} catch (SQLException e) {
+			System.out.println("error: " + e);
+		} finally {
+			try {
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				if (connection != null) {
+					connection.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
 
 	public List<OrderBookVo> getOrderBook() {
 		Connection connection = null;		

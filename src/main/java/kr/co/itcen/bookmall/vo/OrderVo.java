@@ -5,6 +5,7 @@ public class OrderVo {
 	private int payment;
 	private String address;
 	private String userName;
+	private String userEamil;
 	private Long user_no;
 	public Long getNo() {
 		return no;
@@ -36,10 +37,17 @@ public class OrderVo {
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
+	
+	public String getUserEamil() {
+		return userEamil;
+	}
+	public void setUserEamil(String userEamil) {
+		this.userEamil = userEamil;
+	}
 	@Override
 	public String toString() {
-		return "OrderVo [no=" + no + ", payment=" + payment + ", address=" + address + ", userName=" + userName
-				+ ", user_no=" + user_no + "]";
+		return "주문 [주문번호:" + no + ", 결제금액:" + payment + ", 주소:" + address + ", 회원이름:" + userName
+				+ ", 이메일:" + userEamil + ", 회원번호:" + user_no + "]";
 	}
 	
 }

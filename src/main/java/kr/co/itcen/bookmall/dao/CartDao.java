@@ -47,9 +47,9 @@ public class CartDao extends BookmallUtil{
 		try {
 			connection = getConnection();
 			
-			String sql = "select a.user_no, a.book_no, b.name"
-					   + " from cart a, book b"
-					   + " where a.book_no = b.no";
+			String sql = "select a.user_no, a.book_no, b.name, c.name"
+					   + " from cart a, book b, user c"
+					   + " where a.book_no = b.no and a.user_no = c.no";
 			pstmt = connection.prepareStatement(sql);
 
 			rs = pstmt.executeQuery();
@@ -59,6 +59,7 @@ public class CartDao extends BookmallUtil{
 				vo.setNo(rs.getLong(1));
 				vo.setBook_no(rs.getLong(2));
 				vo.setBookName(rs.getString(3));
+				vo.setUserName(rs.getString(4));
 				list.add(vo);
 			}						
 		} catch (SQLException e) {
