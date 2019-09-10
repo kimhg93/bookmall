@@ -23,6 +23,7 @@ public class BookMallTest {
 		CartDaoTest.getCart();		
 		OrderDaoTest.getOrder();
 		OrderBookDaoTest.getOrderBook();
+
 		
 //		BookmallUtil.deleteAll("user");
 //		BookmallUtil.deleteAll("category");
