@@ -38,6 +38,32 @@ public class CategoryDao extends BookmallUtil {
 		}
 	}
 	
+	public static void insertCategory(String name) {
+		Connection connection = null;		
+		PreparedStatement pstmt = null;
+		try {
+			connection = getConnection();
+			
+			String sql = "insert into category values(null, ?)";
+			pstmt = connection.prepareStatement(sql);
+			pstmt.setString(1, name);		
+			pstmt.executeUpdate();	
+		} catch (SQLException e) {
+			System.out.println("error: " + e);
+		} finally {
+			try {
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				if (connection != null) {
+					connection.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
 
 	public List<CategoryVo> getCategory() {
 		Connection connection = null;		

@@ -10,7 +10,7 @@ import java.util.List;
 import kr.co.itcen.bookmall.util.BookmallUtil;
 import kr.co.itcen.bookmall.vo.CartVo;
 
-public class CartDao extends BookmallUtil{
+public class CartDao extends BookmallUtil{	
 	public void insertCart(CartVo vo) {
 		Connection connection = null;		
 		PreparedStatement pstmt = null;

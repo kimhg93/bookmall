@@ -10,8 +10,7 @@ import java.util.List;
 import kr.co.itcen.bookmall.util.BookmallUtil;
 import kr.co.itcen.bookmall.vo.BookVo;
 
-public class BookDao extends BookmallUtil{
-	
+public class BookDao extends BookmallUtil{	
 	public void insertBook(BookVo vo) {
 		Connection connection = null;		
 		PreparedStatement pstmt = null;
@@ -84,5 +83,43 @@ public class BookDao extends BookmallUtil{
 			}
 		}
 		return list;
+	}
+	
+	public static boolean checkCategory(String name) {
+		Connection connection = null;		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		boolean result = false;
+		try {
+			connection = getConnection();
+			
+			String sql = "select count(*) from category where name = ?";
+			pstmt = connection.prepareStatement(sql);
+			pstmt.setString(1, name);
+			rs = pstmt.executeQuery();	
+			
+			while(rs.next()) {		
+				if(rs.getInt(1)==1) {
+					result = true;
+				}
+			}
+		} catch (SQLException e) {
+			System.out.println("error: " + e);
+		} finally {
+			try {
+				if(rs!=null) {
+					rs.close();
+				}
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				if (connection != null) {
+					connection.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return result;
 	}
 }

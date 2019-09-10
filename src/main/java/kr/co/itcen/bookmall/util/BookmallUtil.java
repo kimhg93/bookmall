@@ -3,7 +3,12 @@ package kr.co.itcen.bookmall.util;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import kr.co.itcen.bookmall.vo.OrderVo;
 
 public class BookmallUtil {
 	public static Connection getConnection() throws SQLException {
@@ -42,5 +47,5 @@ public class BookmallUtil {
 				e.printStackTrace();
 			}
 		}
-	}
+	}	
 }
